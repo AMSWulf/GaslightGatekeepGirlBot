@@ -6,6 +6,8 @@
 </head>
 
 <body>
+  <img src="assets/l1.png" class="rose rose-left">
+  <img src="assets/l1.png" class="rose rose-right">
   <div class="container">
     <h2>✨ Gaslight Gatekeep GirlBot ✨</h2>
     <div id="chat"></div>
@@ -13,19 +15,31 @@
     <div class="input-area">
       <input id="messageInput" type="text" placeholder="spill the tea bestie…">
       <button onclick="sendMessage()">💖</button>
-      <!--double check this-->
       <script>
-      var input = document.getElementById("messageInput");
-      input.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-          event.preventDefault();
-          sendMessage();
-        }
+      document.addEventListener("DOMContentLoaded", () => {
+        const input = document.getElementById("messageInput");
+
+        input.addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+          }
+        });
       });
-    </script>
+      </script>
     </div>
   </div>
 
   <script src="script.js"></script>
+  <div class="petal-container">
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+    <span class="petal"></span>
+  </div>
+
 </body>
 </html>

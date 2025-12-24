@@ -69,3 +69,122 @@ button {
   font-size: 18px;
   box-shadow: 0 0 8px #ff66b3;
 }
+.rose {
+  position: fixed;
+  bottom: -20px;
+  height: 60vh;
+  width: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+}
+
+/* LEFT ROSE */
+.rose-left {
+  left: -60px;
+  transform: rotate(-6deg);
+}
+
+/* RIGHT ROSE — mirrored via CSS ONLY */
+.rose-right {
+  right: -60px;
+  transform: scaleX(-1) rotate(-6deg);
+}
+
+/* keep chat above */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.petal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.petal {
+  position: absolute;
+  top: -10%;
+  width: 40px;
+  height: 40px;
+  background-image: url("assets/petal.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.85;
+
+  animation-name: fall, sway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Individual variation */
+.petal:nth-child(1) {
+  left: 10%;
+  animation-duration: 14s, 5s;
+  animation-delay: 0s, 0s;
+}
+
+.petal:nth-child(2) {
+  left: 25%;
+  animation-duration: 18s, 6s;
+  animation-delay: -5s, -2s;
+}
+
+.petal:nth-child(3) {
+  left: 40%;
+  animation-duration: 16s, 4s;
+  animation-delay: -8s, -1s;
+}
+
+.petal:nth-child(4) {
+  left: 55%;
+  animation-duration: 20s, 7s;
+  animation-delay: -3s, -3s;
+}
+
+.petal:nth-child(5) {
+  left: 70%;
+  animation-duration: 17s, 5s;
+  animation-delay: -10s, -4s;
+}
+
+.petal:nth-child(6) {
+  left: 85%;
+  animation-duration: 22s, 8s;
+  animation-delay: -6s, -2s;
+}
+
+.petal:nth-child(7) {
+  left: 50%;
+  animation-duration: 19s, 6s;
+  animation-delay: -12s, -5s;
+}
+
+/* Vertical fall */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+
+/* Gentle side-to-side drift */
+@keyframes sway {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: 30px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
