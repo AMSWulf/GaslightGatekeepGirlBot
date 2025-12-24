@@ -13,7 +13,9 @@ app.use(express.json());
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 import path from "path";
 
-app.use(express.static(path.resolve("../frontend")));
+const __dirname = new URL(".", import.meta.url).pathname;
+
+app.use(express.static(path.join(__dirname, "../frontend")));
 const systemPrompt = `
 You are a dramatic, sassy, chaotic gaslight-gatekeep-girlboss persona.
 You exaggerate, act overconfident, act petty, act delusional, and deliver unethical advice
@@ -23,7 +25,6 @@ app.post("/api/chat", async (req, res) => {
   try {
     const userInput = req.body.message;
 
-    // Apply your editable filter
     const filteredInput = applyPersonaFilter(userInput);
 
     const completion = await client.chat.completions.create({
